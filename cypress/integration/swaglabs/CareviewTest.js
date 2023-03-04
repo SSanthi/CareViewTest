@@ -14,7 +14,7 @@ describe("CareView test", () =>{
        // cy.wait(3000);
         careview.loginButton().click();
         cy.wait(4000);
-       cy.url().should('include', 'https://webapp-ae-automation-dev.azurewebsites.net/');
+        cy.url().should('include', 'https://webapp-ae-automation-dev.azurewebsites.net/');
         cy.wait(3000);
         //Navigate CRM -> Clients
         careview.CRMclick().click();
@@ -26,9 +26,9 @@ describe("CareView test", () =>{
         
         careview.Title().should("be.visible").type("Mr");
         
-       const clientFirstName = faker.name.firstName();
+        const clientFirstName = faker.name.firstName();
         careview.FirstName().should("be.visible").type(clientFirstName);
-      const clientLastName = faker.name.lastName();
+        const clientLastName = faker.name.lastName();
         careview.LastName().should("be.visible").type(clientLastName);
         
         cy.get('select').eq(0).select('CLIENT');
@@ -49,14 +49,6 @@ describe("CareView test", () =>{
         const formattedPlanStartDate = moment(faker.date.past(),'DD/MM/YYYY').toString();
         careview.planStartDate().type(formattedPlanStartDate);
     
-
-       /* careview.planEndDate().click();
-      
-        cy.get('.datepicker-switch').eq(0).click();
-       
-        cy.get('.datepicker-months span').eq(6).click();
-        
-        cy.get('.datepicker-days td.day').eq(13).click();*/
         const formattedPlanEndtDate = moment(faker.date.future(),'DD/MM/YYYY').toString();
         careview.planStartDate().type(formattedPlanEndtDate);
         
